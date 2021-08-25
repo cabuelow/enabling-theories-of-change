@@ -31,7 +31,7 @@ This repository provides the code and data to reproduce all figures and suppleme
 3. 01_lvm-model-no-cons-spend.R
     - The model without the *Conservation Spending* indicator (to assess robustness to violation of the ‘missing at random’ assumption)
 
-#### Calculate the median predicted standard normal indicator value from the posterior distribution of the LVM, for each indicator and country
+#### Calculate the median predicted standard normal indicator values from the posterior distribution of the LVM, for each indicator and country
 
 1. 02_predict-indicator-vals.R
     - Obtain the posterior distributions of latent variable scores and coefficients for each indicator and country (i.e. MCMC samples) to calculate the entire range of predicted standard normal indicator values and extract the median value. Repeat for each lvm model listed above. 
