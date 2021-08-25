@@ -22,22 +22,22 @@ This repository provides the code and data to reproduce all figures, tables, and
 3. 01_lvm-model-no-cons-spend.R
     - The model without the *Conservation Spending* indicator (to assess robustness to violation of the ‘missing at random’ assumption)
 
-#### Evaluate robustness to violation of ‘missing at random’ assumption for *Ramsar Management* and *Conservation Spending* indicators
-
-1. 02_evaluate-MAR-consspend.R
-    - Assess robustness of model parameter estimation to violation of the ‘missing at random’ assumption for the *Conservation Spending* indicator (Fig S2)
-2. 02_evaluate-MAR-ramsmanage.R
-    - Assess robustness of model parameter estimation to violation of the ‘missing at random’ assumption for the *Ramsar Management* indicator (Fig S3)
-
-
 #### Calculate the median predicted standard normal indicator value from the posterior distribution of the LVM, for each indicator and country
 
-1. 03_predict-indicator-vals.R
-    - Obtain the posterior distributions of latent variable scores and coefficients for each indicator and country (i.e. MCMC samples) to calculate the entire range of predicted standard normal indicator values and extract the median value. Also extract every nth predicted value from the entire range of values for each indicator and country to assess Enabling Profile robustness (see 09_cluster-robustness.R)
+1. 02_predict-indicator-vals.R
+    - Obtain the posterior distributions of latent variable scores and coefficients for each indicator and country (i.e. MCMC samples) to calculate the entire range of predicted standard normal indicator values and extract the median value. Repeat for each lvm model above. 
+    - Also extract every nth predicted value from the entire range of values for each indicator and country to assess Enabling Profile robustness (see 09_cluster-robustness.R)
 
 #### Check that the raw and predicted standard normal indicator values are strongly positively correlated
 
-1. 04_raw-vs-predicted.R
+1. 03_raw-vs-predicted.R
+
+#### Evaluate robustness to violation of ‘missing at random’ assumption for *Ramsar Management* and *Conservation Spending* indicators
+
+1. 04_evaluate-MAR-consspend.R
+    - Assess robustness of model parameter estimation to violation of the ‘missing at random’ assumption for the *Conservation Spending* indicator (Fig S2)
+2. 04_evaluate-MAR-ramsmanage.R
+    - Assess robustness of model parameter estimation to violation of the ‘missing at random’ assumption for the *Ramsar Management* indicator (Fig S3)
 
 #### Run a cluster analysis on the predicted standard normal indicator values to classify countries in to Enabling Profiles and produce a map
 
