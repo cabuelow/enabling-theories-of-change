@@ -10,6 +10,8 @@ An interactive web application and associated code can be found [here](https://g
 
 This repository provides the code and data to reproduce all figures, tables, and supplemental figures/tables found in Buelow et al. 2021
 
+[cbrown5](https://github.com/cbrown5) is a contributor to this code base
+
 ### Scripts
 
 #### Run a Bayesian latent variable model (LVM) on raw indicator data to gap-fill missing indicator values by country
