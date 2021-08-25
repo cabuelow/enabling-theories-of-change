@@ -1,0 +1,21 @@
+﻿Category,indicator,label
+Policy,MPA.ind.2020,MPA target
+Regulation,SNM.ind.2020,Sustainable nitrogen use
+Regulation,WWT.ind.2020,Wastewater treatment
+Regulation,SDA.ind.2020,S02 emission reduction
+Regulation,NXA.ind.2020,N20 emission reduction
+Engagement,Bio_Engage_sc,Biodiversity engagement
+Regulation,Fees,Environmental tax
+Policy,MEA_Membership,Multilateral agreements
+Policy,BEA_Membership,Bilateral agreements
+Policy,Mitigation_blue_carbon,NDC mitigation
+Policy,Adaptation_resilience,NDC adaptation
+Policy,NDC_Commit_binary,NDC commitment
+Engagement,NGO_Environmental,Environmental NGO projects
+Policy,WGI_GovEff_est,Governance effectiveness
+Regulation,WGI_RQ_est,Regulatory quality
+Engagement,OECD_sc,Biodiversity projects
+Regulation,ramsar.manage,Ramsar management
+Policy,ramsar.area.sc,Ramsar protection
+Regulation,FGT.ind.2020,Fisheries trawling
+Engagement,mean_annual_funds,Conservation spending
