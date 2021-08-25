@@ -8,55 +8,61 @@ An interactive web application and associated code can be found [here](https://g
 
 ### About
 
-This repository provides the code and data to reproduce all figures, tables, and supplemental figures/tables found in Buelow et al. 2021.
+This repository provides the code and data to reproduce all figures, tables, and supplemental figures/tables found in Buelow et al. 2021
 
 ### Scripts
 
-#### Run Bayesian latent variable model (LVM) to raw indicator data for each country to gap-fill missing indicator values.
+#### Run a Bayesian latent variable model (LVM) on raw indicator data to gap-fill missing indicator values by country
 
 
 1. 01_lvm-model.R
     - The full model
 2. 01_lvm-model-no-rams-manage.R
-    - The model without the Ramsar Management indicator (to assess robustness to violation of the ‘missing at random’ assumption’)
+    - The model without the *Ramsar Management* indicator (to assess robustness to violation of the ‘missing at random’ assumption)
 3. 01_lvm-model-no-cons-spend.R
-    - The model without the Conservation Spending indicator (to assess robustness to violation of the ‘missing at random’ assumption’)
+    - The model without the *Conservation Spending* indicator (to assess robustness to violation of the ‘missing at random’ assumption)
 
-#### Evaluate robustness to violation of ‘missing at random’ assumption for Ramsar Management and Conservation Spending indicators
+#### Evaluate robustness to violation of ‘missing at random’ assumption for *Ramsar Management* and *Conservation Spending* indicators
 
-1. 02_evaluate-MAR-ramsmanage.R
-    - Assess robustness of model parameter estimation to violation of the ‘missing at random’ assumption for the Ramsar Management indicator
-2. 02_evaluate-MAR-consspend.R
-    - Assess robustness of model parameter estimation to violation of the ‘missing at random’ assumption for the Conservation Spending indicator
+1. 02_evaluate-MAR-consspend.R
+    - Assess robustness of model parameter estimation to violation of the ‘missing at random’ assumption for the *Conservation Spending* indicator (Fig S2)
+2. 02_evaluate-MAR-ramsmanage.R
+    - Assess robustness of model parameter estimation to violation of the ‘missing at random’ assumption for the *Ramsar Management* indicator (Fig S3)
 
-#### Calculate the median predicted standard normal indicator value from the posterior distribution of the LVM, for each indicator and country.
+
+#### Calculate the median predicted standard normal indicator value from the posterior distribution of the LVM, for each indicator and country
 
 1. 03_predict-indicator-vals.R
-    - Obtain the posterior distributions of latent variable scores and coefficients for each indicator and country (i.e. MCMC samples) to calculate the entire range of predicted standard normal indicator values and extract the median value. Also extract every nth predicted value from the entire range of values for each indicator and country to assess Enabling Profile robustness (see 10_cluster-robustness.R)
+    - Obtain the posterior distributions of latent variable scores and coefficients for each indicator and country (i.e. MCMC samples) to calculate the entire range of predicted standard normal indicator values and extract the median value. Also extract every nth predicted value from the entire range of values for each indicator and country to assess Enabling Profile robustness (see 09_cluster-robustness.R)
 
-#### Check that the raw and predicted standard normal indicator values are strongly positively correlated.
+#### Check that the raw and predicted standard normal indicator values are strongly positively correlated
 
 1. 04_raw-vs-predicted.R
 
-#### Run a cluster analysis on the predicted standard normal indicator values to classify countries in to Enabling Profiles and produce a map (Fig 1A)
+#### Run a cluster analysis on the predicted standard normal indicator values to classify countries in to Enabling Profiles and produce a map
 
 1. 05_cluster.R
+    - Fig 1A
 
-#### Determine the importance of indicators for classifying countries into Enabling Profiles with classification trees (Fig 1B and C). 
+#### Determine the importance of indicators for classifying countries into Enabling Profiles with classification trees
 
 1. 06_trees.R
+    - Fig 1B and C
 
-####  Determine the main drivers of mangrove and seagrass loss in each Enabling Profile (Fig 2 and Fig 3, respectively).
+####  Identify and map the main drivers of mangrove and seagrass loss in each Enabling Profile (Fig 2 and Fig 3, respectively)
 
 1. 07_drivers-loss.R
+    - Fig 2 and 3
 
 #### Produce an ordination of standard normal indicator values for each country, and group by Enabling Profile (Fig S6)
 
 1. 08_ordination.R
+    - Fig S6
 
 #### Assess the robustness of Enabling Profiles
 
 1. 09_cluster-robustness.R
+    - Fig S4 and 5
 
 ### Data sources
 
