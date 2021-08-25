@@ -27,8 +27,8 @@ This repository provides the code and data to reproduce all figures and suppleme
 #### Calculate the median predicted standard normal indicator value from the posterior distribution of the LVM, for each indicator and country
 
 1. 02_predict-indicator-vals.R
-    - Obtain the posterior distributions of latent variable scores and coefficients for each indicator and country (i.e. MCMC samples) to calculate the entire range of predicted standard normal indicator values and extract the median value. Repeat for each lvm model above. 
-    - Also extract every 96th predicted value from the entire range of values for each indicator and country to assess Enabling Profile robustness (see 09_cluster-robustness.R)
+    - Obtain the posterior distributions of latent variable scores and coefficients for each indicator and country (i.e. MCMC samples) to calculate the entire range of predicted standard normal indicator values and extract the median value. Repeat for each lvm model listed above. 
+    - Also extract every 96th predicted value from the entire range of predicted values for each indicator and country to assess Enabling Profile robustness (see 09_cluster-robustness.R)
 
 #### Check that the raw and predicted standard normal indicator values are strongly positively correlated
 
