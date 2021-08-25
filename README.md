@@ -8,7 +8,7 @@ An interactive web application and associated code can be found [here](https://g
 
 ### About
 
-This repository provides the code and data to reproduce all figures, tables, and supplemental figures/tables found in Buelow et al. 2021
+This repository provides the code and data to reproduce all figures and supplemental figures/tables found in Buelow et al. 2021
 
 [cbrown5](https://github.com/cbrown5) is a contributor to this code base
 
