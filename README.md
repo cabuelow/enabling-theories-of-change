@@ -48,7 +48,7 @@ This repository provides the code and data to reproduce all figures and suppleme
 2. 04_evaluate-MAR-ramsmanage.R
     - Assess robustness of model parameter estimation to violation of the ‘missing at random’ assumption for the *Ramsar Management* indicator (Fig S3)
 
-#### Run a cluster analysis on the predicted standard normal indicator values to classify countries in to Enabling Profiles and produce a map
+#### Run a cluster analysis on the predicted standard normal indicator values to classify countries into Enabling Profiles and produce a map
 
 1. 05_cluster.R
     - Fig 1A
