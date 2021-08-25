@@ -4,7 +4,7 @@ Citation: Buelow et al. (in prep) 'Global opportunities for vegetated coastal we
 
 An interactive web application and associated code can be found [here](https://github.com/cabuelow/enabling-profiles-app)
 
-[About](#about) | [Abstract](#abstract) | [Scripts](#scripts) | [Data sources](#data-sources) | [License](LICENSE)
+[About](#about) | [Abstract](#abstract) | [Graphical summary](#graphical-summary) | [Scripts](#scripts) | [Data sources](#data-sources) | [License](LICENSE)
 
 ### About
 
@@ -18,6 +18,12 @@ This repository provides the code and data to reproduce all figures and suppleme
 2.	We used 19 national indicators of policy, regulation, and engagement to cluster 138 countries into six global ‘enabling profiles’ that represent distinct socio-political and economic settings for conservation of vegetated coastal wetlands.
 3.	To determine opportunities for effective conservation action, we identified drivers of mangrove and seagrass loss within each enabling profile (saltmarsh opportunities were not identified due to data limitations). The foremost opportunities for conserving mangroves were to prevent loss to agriculture and aquaculture through improved protection efforts, stabilise shorelines to prevent loss to erosion, and restore mangroves lost to clearing. Seagrass opportunities were to enforce policy and improve regulations to reduce impacts from coastal development, and to restore seagrass lost to climate and storm events.
 4.	Enabling profiles inform the most immediate actions countries can take to achieve conservation of coastal wetlands, and could be established for other ecosystems to support global conservation initiatives.
+
+### Graphical summary
+
+<p align="center">
+  <img width="600" height="350" src="https://github.com/cabuelow/conservation-opportunity/blob/main/opportunites.png">
+</p>
 
 ### Scripts
 
