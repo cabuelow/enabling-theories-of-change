@@ -1,4 +1,4 @@
-# Code and data for ‘Global opportunities for conserving vegetated coastal wetlands’
+## Code and data for ‘Global opportunities for conserving vegetated coastal wetlands’
 
 Citation: Buelow et al. bioarchiv
 
