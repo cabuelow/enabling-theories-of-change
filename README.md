@@ -28,7 +28,7 @@ This repository provides the code and data to reproduce all figures, tables, and
 
 1. 02_predict-indicator-vals.R
     - Obtain the posterior distributions of latent variable scores and coefficients for each indicator and country (i.e. MCMC samples) to calculate the entire range of predicted standard normal indicator values and extract the median value. Repeat for each lvm model above. 
-    - Also extract every nth predicted value from the entire range of values for each indicator and country to assess Enabling Profile robustness (see 09_cluster-robustness.R)
+    - Also extract every 96th predicted value from the entire range of values for each indicator and country to assess Enabling Profile robustness (see 09_cluster-robustness.R)
 
 #### Check that the raw and predicted standard normal indicator values are strongly positively correlated
 
@@ -51,12 +51,12 @@ This repository provides the code and data to reproduce all figures, tables, and
 1. 06_trees.R
     - Fig 1B and C
 
-####  Identify and map the main drivers of mangrove and seagrass loss in each Enabling Profile (Fig 2 and Fig 3, respectively)
+####  Identify and map the main drivers of mangrove and seagrass loss in each Enabling Profile
 
 1. 07_drivers-loss.R
     - Fig 2 and 3
 
-#### Produce an ordination of standard normal indicator values for each country, and group by Enabling Profile (Fig S6)
+#### Produce an ordination of standard normal indicator values for each country, and group by Enabling Profile
 
 1. 08_ordination.R
     - Fig S6
