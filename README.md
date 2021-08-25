@@ -64,7 +64,7 @@ This repository provides the code and data to reproduce all figures, tables, and
 #### Assess the robustness of Enabling Profiles
 
 1. 09_cluster-robustness.R
-    - Fig S4 and 5
+    - Fig S4 and S5
 
 ### Data sources
 
@@ -91,5 +91,5 @@ This repository provides the code and data to reproduce all figures, tables, and
 | Engagement indicator | Biodiversity projects | The number of biodiversity-related conservation projects in a developing country that are receiving funding from OECD (Organisation for Economic Cooperation and Development) countries, standardised by country area (km2) | http://www.oecd.org/dac/stats/biodiversity.htm, accessed on [24/11/2020] |
 | Engagement indicator | Environmental NGO projects | The number of environmental NGO aid projects in a country standardised by country area (km2). Note that data is provided on a voluntary basis and so is not fully comprehensive | https://ngoaidmap.org/, accessed on [24/11/2020] |
 | Engagement indicator| Biodiversity engagement | A score based on the number of times biodiversity key words have been sourced from twitter, online newspapers and google in a country (per month) | http://biodiversityengagementindicator.com/, accessed on [24/11/2020] |
-| Drivers of wetland loss | Mangrove loss drivers | N/A | Goldberg, L., Lagomasino, D., Thomas, N., and Fatoyinbo, T. (2020). Global declines in human-driven mangrove loss. Glob. Chang. Biol. 26, 5844–5855 |
-| Drivers of wetland loss | Seagrass drivers | N/A | Dunic, J. C., Brown, C. J., Connolly, R. M., Turschwell, M. P., and Côté, I. M. (2021). Long-term declines and recovery of meadow area across the world’s seagrass bioregions. Global Change Biology 27, 4096–4109. doi:10.1111/gcb.15684 |
+| Drivers of wetland loss | Mangrove loss drivers | Human settlement, commodities (agri/aquaculture), erosion, non-productive conversion (clearing), extreme weather events | Goldberg, L., Lagomasino, D., Thomas, N., and Fatoyinbo, T. (2020). Global declines in human-driven mangrove loss. Global Change Biology 26, 5844–5855 |
+| Drivers of wetland loss | Seagrass drivers | Aquaculture/fishing, boating, catchment processes, disease, climate and storms | Dunic, J. C., Brown, C. J., Connolly, R. M., Turschwell, M. P., and Côté, I. M. (2021). Long-term declines and recovery of meadow area across the world’s seagrass bioregions. Global Change Biology 27, 4096–4109. doi:10.1111/gcb.15684 |
