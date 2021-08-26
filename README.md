@@ -1,6 +1,6 @@
 ## Code and data for ‘Global opportunities for conserving vegetated coastal wetlands’
 
-Citation: Buelow et al. (in prep) 'Global opportunities for vegetated coastal wetland conservation'
+Citation: Buelow et al. (*in prep*) *'Global opportunities for vegetated coastal wetland conservation'* in **People and Nature**
 
 An interactive web application and associated code can be found [here](https://github.com/cabuelow/enabling-profiles-app)
 
