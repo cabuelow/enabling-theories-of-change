@@ -22,7 +22,7 @@ This repository provides the code and data to reproduce all figures and suppleme
 ### Graphical summary
 
 <p align="center">
-  <img width="600" height="350" src="https://github.com/cabuelow/conservation-opportunity/blob/main/opportunites.png">
+  <img width="600" height="350" src="https://github.com/cabuelow/conservation-opportunity/blob/main/opportunities.png">
 </p>
 
 ### Scripts
