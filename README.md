@@ -1,6 +1,6 @@
-## Code and data for ‘Global opportunities for conserving vegetated coastal wetlands’
+## Code and data for ‘Enabling conservation theories of change’
 
-Citation: Buelow et al. (*under review*) *'Global opportunities for vegetated coastal wetland conservation'* in **People and Nature**
+Citation: Buelow et al. (*in prep*) *'Enabling conservation theories of change'*
 
 An interactive web application and associated code can be found [here](https://github.com/cabuelow/enabling-profiles-app)
 
