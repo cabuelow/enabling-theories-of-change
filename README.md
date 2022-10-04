@@ -19,12 +19,6 @@ This repository provides the code and data to reproduce all figures and suppleme
 3.	To determine opportunities for effective conservation action, we identified drivers of mangrove and seagrass loss within each enabling profile (saltmarsh opportunities were not identified due to data limitations). The foremost opportunities for conserving mangroves were to prevent loss to agriculture and aquaculture through improved protection efforts, stabilise shorelines to prevent loss to erosion, and restore mangroves lost to clearing. Seagrass opportunities were to enforce policy and improve regulations to reduce impacts from coastal development, and to restore seagrass lost to climate and storm events.
 4.	Enabling profiles inform the most immediate actions countries can take to achieve conservation of coastal wetlands, and could be established for other ecosystems to support global conservation initiatives.
 
-### Graphical summary
-
-<p align="center">
-  <img width="600" height="350" src="https://github.com/cabuelow/conservation-opportunity/blob/main/opportunities.png">
-</p>
-
 ### Scripts
 
 #### Run a Bayesian latent variable model (LVM) on raw indicator data to gap-fill missing indicator values by country
