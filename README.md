@@ -4,7 +4,7 @@ Citation: Buelow et al. (*in prep*) *'Enabling conservation Theories of Change'*
 
 An interactive web application and associated code can be found [here](https://github.com/cabuelow/enabling-profiles-app)
 
-[About](#about) | [Abstract](#abstract) | [Graphical summary](#graphical-summary) | [Scripts](#scripts) | [Data sources](#data-sources) | [License](LICENSE)
+[About](#about) | [Abstract](#abstract) | [Scripts](#scripts) | [Data sources](#data-sources) | [License](LICENSE)
 
 ### About
 
