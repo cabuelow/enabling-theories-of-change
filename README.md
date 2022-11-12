@@ -1,6 +1,6 @@
 ## Code and data for ‘Enabling conservation Theories of Change’
 
-Citation: Buelow et al. (*in prep*) *'Enabling conservation Theories of Change'*
+Citation: Buelow et al. (*under review*) *'Enabling conservation Theories of Change'* https://doi.org/10.21203/rs.3.rs-2184542/v1
 
 An interactive web application and associated code can be found [here](https://github.com/cabuelow/enabling-profiles-app)
 
