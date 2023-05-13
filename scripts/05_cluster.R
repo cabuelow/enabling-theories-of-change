@@ -20,7 +20,7 @@ data('World')
 max <- min(apply(resid.df, 2, max))
 min <- max(apply(resid.df, 2, min))
 
-resid.df <- resid.df %>% 
+resid.df <- resid.df %>%
   mutate_all(funs(rescale(., to = c(min, max))))
 
 set.seed(444)
@@ -28,8 +28,12 @@ set.seed(444)
 # silhouette width to assess quality of clustering configurations
 # assess between five and ten clusters
 
-fviz_nbclust(resid.df, pam, method = "silhouette", k.max = 10) + 
+fviz_nbclust(resid.df, pam, method = "silhouette", k.max = 10) +
   theme_classic()
+#fviz_nbclust(resid.df, pam, method = "wss", k.max = 10) +
+ # theme_classic()
+#fviz_nbclust(resid.df, pam, method = "gap_stat", k.max = 10) +
+ #theme_classic()
 
 # run cluster analysis
 # Note that six clusters was chosen after visually inspecting all clustering configurations between five and ten
@@ -57,13 +61,13 @@ clust.name <- clust.name %>% arrange(fine.clust)
 
 # get color palette and save new cluster order
 
-pal <- brewer.pal(9, 'YlGnBu') 
+pal <- brewer.pal(9, 'YlGnBu')
 pal <- pal[c(2,3,5,6,8,9)]
 
 clust.name$pal.fine <- pal
 write.csv(clust.name, 'outputs/clus-new-order.csv', row.names = F)
 
-# plot and save dendrogram 
+# plot and save dendrogram
 
 labels(dend) <- clust.name$fine.clust
 labels <- labels(dend)
@@ -78,26 +82,26 @@ dev.off()
 clusters <- data.frame(ISO_SOV1 = dat$ISO_SOV1, Cluster = df.clust$cluster)
 write.csv(clusters, 'outputs/cluster.csv', row.names = F)
 
-# get full spatial df with model results and merge by country 
+# get full spatial df with model results and merge by country
 
-dat2 <- dat %>% 
-  left_join(clusters, by = 'ISO_SOV1') %>% 
-  distinct() %>% 
-  dplyr::rename(iso_a3 = ISO_SOV1) %>% 
-  dplyr::rename(cluster = Cluster) %>% 
-  left_join(clust.name, by = 'cluster') %>% 
+dat2 <- dat %>%
+  left_join(clusters, by = 'ISO_SOV1') %>%
+  distinct() %>%
+  dplyr::rename(iso_a3 = ISO_SOV1) %>%
+  dplyr::rename(cluster = Cluster) %>%
+  left_join(clust.name, by = 'cluster') %>%
   dplyr::rename('Enabling profile' = fine.clust)
 
-world.clust <- World %>% 
-  left_join(dat2, by = 'iso_a3') %>% 
-  filter(!is.na(Country)) %>% 
-  st_transform(crs = 4326) %>% 
-  st_crop(xmin = -180, ymin = -60, xmax = 180, ymax = 90) %>% 
+world.clust <- World %>%
+  left_join(dat2, by = 'iso_a3') %>%
+  filter(!is.na(Country)) %>%
+  st_transform(crs = 4326) %>%
+  st_crop(xmin = -180, ymin = -60, xmax = 180, ymax = 90) %>%
   st_transform(crs = '+proj=robin +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m no_defs')
 
-World <- World %>% 
-  st_transform(crs = 4326) %>% 
-  st_crop(xmin = -180, ymin = -60, xmax = 180, ymax = 90) %>% 
+World <- World %>%
+  st_transform(crs = 4326) %>%
+  st_crop(xmin = -180, ymin = -60, xmax = 180, ymax = 90) %>%
   st_transform(crs = '+proj=robin +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m no_defs')
 
 # plot
@@ -106,8 +110,8 @@ tmap_mode('plot')
 
 m <- tm_shape(World) +
   tm_fill(col = 'lightgrey') +
-  tm_shape(filter(world.clust)) +
-  tm_fill(col = 'Enabling profile', style = 'cat', 
+  tm_shape(world.clust) +
+  tm_fill(col = 'Enabling profile', style = 'cat',
           palette = pal,
           legend.is.portrait=FALSE) +
   tm_borders(col = 'white', lwd = 0.05) +

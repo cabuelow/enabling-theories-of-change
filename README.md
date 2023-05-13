@@ -14,7 +14,7 @@ This repository provides the code and data to reproduce all figures and suppleme
 
 ### Abstract
 
-Global Theories of Change (ToCs), such as the post-2020 Global Biodiversity Framework (GBF), provide broad, overarching guidance for achieving conservation goals. However, broad guidance cannot inform how conservation actions will lead to desired outcomes. We provide a framework for translating a global-scale ToC into focussed, ecosystem-specific ToCs that consider feasibility of actions, as determined by national socioeconomic and political context (i.e., enabling conditions). We demonstrate the framework using coastal wetland ecosystems as a case study. We identified six distinct multinational profiles of enabling conditions (‘enabling profiles’) for coastal wetland conservation. For countries belonging to enabling profiles with high internal capacity to enable conservation, we described plausible ToCs that involved strengthening policy and regulation. Alternatively, for enabling profiles with low internal enabling capacity, plausible ToCs typically required formalising community-led conservation. Our ‘enabling profile’ framework could be applied to other ecosystems to help operationalise the post-2020 GBF.
+Global Theories of Change (ToCs) can provide broad, overarching guidance for achieving conservation goals. However, broad guidance cannot inform how conservation actions will lead to desired outcomes. Here, we develop a framework for translating a global-scale ToC into focussed, ecosystem-specific ToCs that consider feasibility of actions, as determined by national socioeconomic and political context (i.e., enabling conditions). We used coastal wetlands as a case study for developing the framework and identified six distinct multinational profiles of enabling conditions (‘enabling profiles’) for their conservation. For countries belonging to enabling profiles with high internal capacity to enable conservation, we described plausible ToCs that involved strengthening policy and regulation. Alternatively, for enabling profiles with low internal enabling capacity, plausible ToCs typically required formalising community-led conservation. Our ‘enabling profile’ framework could be applied to other ecosystems to help operationalise the Kunming-Montreal Global Biodiversity Framework.
 
 ### Scripts
 
@@ -41,35 +41,50 @@ Global Theories of Change (ToCs), such as the post-2020 Global Biodiversity Fram
 #### Evaluate robustness to violation of ‘missing at random’ assumption for *Ramsar Management* and *Conservation Spending* indicators
 
 1. 04_evaluate-MAR-consspend.R
-    - Assess robustness of model parameter estimation to violation of the ‘missing at random’ assumption for the *Conservation Spending* indicator (Fig S2)
+    - Assess robustness of model parameter estimation to violation of the ‘missing at random’ assumption for the *Conservation Spending* indicator (Fig S3)
 2. 04_evaluate-MAR-ramsmanage.R
-    - Assess robustness of model parameter estimation to violation of the ‘missing at random’ assumption for the *Ramsar Management* indicator (Fig S3)
+    - Assess robustness of model parameter estimation to violation of the ‘missing at random’ assumption for the *Ramsar Management* indicator (Fig S4)
 
 #### Run a cluster analysis on the predicted standard normal indicator values to classify countries into Enabling Profiles and produce a map
 
 1. 05_cluster.R
-    - Fig 1A
+    - Fig 2A
 
 #### Determine the importance of indicators for classifying countries into Enabling Profiles with classification trees
 
 1. 06_trees.R
-    - Fig 1B and C
+    - Fig 2B and C
 
 ####  Identify and map the main drivers of mangrove and seagrass loss in each Enabling Profile
 
 1. 07_drivers-loss.R
-    - Fig 2 and 3
+    - Fig 3 and 4
 
 #### Produce an ordination of standard normal indicator values for each country, and group by Enabling Profile
 
 1. 08_ordination.R
-    - Fig S6
+    - Fig S1
 
 #### Assess the robustness of Enabling Profiles
 
 1. 09_cluster-robustness.R
-    - Fig S4 and S5
+    - Fig S7 and S8
 
+#### Validate missing value interpolation
+
+1. 10_imputation-validation.R
+    - Fig S5
+    
+#### Simulate missing nat at random and calculate prediction bias
+
+1. 11_simulate-mnar.R
+    - Fig S6
+
+#### Compare country pairwise clustering differences when variables are removed
+
+1. 12_compare-clusters.R
+    - Fig S9
+    
 ### Data sources
 
 | Data category  | Indicator/Driver | Description | Source |

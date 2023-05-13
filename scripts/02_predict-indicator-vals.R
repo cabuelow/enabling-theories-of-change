@@ -4,7 +4,7 @@ library(boral)
 
 # data
 
-m1 <- readRDS('outputs/models/mod-LV9-final.rds')
+m1 <- readRDS('outputs/models/mod-LV9-final_2021.rds')
 colnames <- read.csv('outputs/colnames-boral.csv')
 
 # extract lv.coefs and lv scores from mcmc samples for LVs
@@ -39,7 +39,7 @@ lv.9 <- lv[,grep(',9]', colnames(lv))]
 
 # calculate predicted value for each MCMC sample
 
-# 3D array 
+# 3D array
 
 nmcmc <- nrow(lv.coefs.1)
 nsites <- ncol(lv.1)
@@ -47,16 +47,16 @@ nind <- ncol(lv.coefs.1)
 X <- array(dim = c(nsites, nind, nmcmc))
 
 system.time(
-for (i in 1:nmcmc){ #loop over samples 
+for (i in 1:nmcmc){ #loop over samples
 
-  x <- (lv.coefs.1[i,] %*% t(lv.1[i,])) + 
-    (lv.coefs.2[i,] %*% t(lv.2[i,])) + 
-    (lv.coefs.3[i,] %*% t(lv.3[i,])) + 
-    (lv.coefs.4[i,] %*% t(lv.4[i,])) + 
-    (lv.coefs.5[i,] %*% t(lv.5[i,])) + 
-    (lv.coefs.6[i,] %*% t(lv.6[i,])) + 
-    (lv.coefs.7[i,] %*% t(lv.7[i,])) + 
-    (lv.coefs.8[i,] %*% t(lv.8[i,])) + 
+  x <- (lv.coefs.1[i,] %*% t(lv.1[i,])) +
+    (lv.coefs.2[i,] %*% t(lv.2[i,])) +
+    (lv.coefs.3[i,] %*% t(lv.3[i,])) +
+    (lv.coefs.4[i,] %*% t(lv.4[i,])) +
+    (lv.coefs.5[i,] %*% t(lv.5[i,])) +
+    (lv.coefs.6[i,] %*% t(lv.6[i,])) +
+    (lv.coefs.7[i,] %*% t(lv.7[i,])) +
+    (lv.coefs.8[i,] %*% t(lv.8[i,])) +
     (lv.coefs.9[i,] %*% t(lv.9[i,]))
   X[,,i] <- t(x) #convention to have rows as sites
 }

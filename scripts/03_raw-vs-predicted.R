@@ -14,15 +14,15 @@ dat <- read.csv('data/master-df_final.csv') %>%
 max <- min(apply(resid.df, 2, max))
 min <- max(apply(resid.df, 2, min))
 
-resid.df <- resid.df %>% 
+resid.df <- resid.df %>%
   mutate_all(funs(rescale(., to = c(min, max))))
 
 # log transform continuous response variables
 
 logtrans <- function(x) log(x + (min(x[x>0],na.rm = T)*0.33))
 
-y <- dat %>% 
-  select(WGI_GovEff_est:mean_annual_funds) %>% 
+y <- dat %>%
+  select(WGI_GovEff_est:mean_annual_funds) %>%
   mutate_at(vars(Bio_Engage_sc, ramsar.area.sc, MPA.ind.2020, NXA.ind.2020,
                  SDA.ind.2020, Fees, OECD_sc, NGO_Environmental,
                  WWT.ind.2020, mean_annual_funds), logtrans)
@@ -32,14 +32,14 @@ y <- dat %>%
 
 y.scale <- as.data.frame(scale(dplyr::select(y, -c(MEA_Membership, BEA_Membership,
                                                    Mitigation_blue_carbon, Adaptation_resilience,
-                                                   NDC_Commit_binary, 
-                                                   WGI_GovEff_est, WGI_RQ_est, ramsar.manage)), 
+                                                   NDC_Commit_binary,
+                                                   WGI_GovEff_est, WGI_RQ_est, ramsar.manage)),
                                center = TRUE, scale = TRUE)) # exclude binomial data, counts, ranks, proportions, and WGI b/c already a standard normal variable
 
-# add those that weren't 
+# add those that weren't
 
 y.scale <- cbind(y.scale, dplyr::select(y, MEA_Membership, BEA_Membership,
-                                        Mitigation_blue_carbon,Adaptation_resilience, 
+                                        Mitigation_blue_carbon,Adaptation_resilience,
                                         NDC_Commit_binary,
                                         WGI_GovEff_est, WGI_RQ_est, ramsar.manage)) # 'bind variables that weren't scaled to df
 
@@ -52,11 +52,11 @@ y <- y.scale
 
 # wide to long
 
-resid.df.long <- pivot_longer(resid.df, OECD_sc:ramsar.manage, 
+resid.df.long <- pivot_longer(resid.df, OECD_sc:ramsar.manage,
                               names_to = 'Indicator', values_to = 'Val_resid')
 resid.df.long$Indicator <- as.factor(resid.df.long$Indicator)
 
-dat.ind.long <- pivot_longer(y, OECD_sc:ramsar.manage, 
+dat.ind.long <- pivot_longer(y, OECD_sc:ramsar.manage,
                              names_to = 'Indicator', values_to = 'Val_raw')
 dat.ind.long$Indicator <- as.factor(dat.ind.long$Indicator)
 
@@ -69,6 +69,7 @@ a <- ggplot(dat.plot)+
   facet_wrap(.~Indicator, nrow = 10, ncol = 7, scales = 'free') +
   theme_classic()
 a
+
 
 
 
