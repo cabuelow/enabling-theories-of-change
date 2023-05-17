@@ -74,7 +74,7 @@ Global Theories of Change (ToCs) can provide broad, overarching guidance for ach
 
 1. 10_imputation-validation.R
     
-#### Simulate missing not at random and calculate predictive discrimination
+#### Simulate missing not at random and assess interpolative capacity
 
 1. 11_simulate-mnar.R
 2. 12_plot-sims.R
