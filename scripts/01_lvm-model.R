@@ -1,6 +1,6 @@
 # latent variable model
 # note that re-producing Buelow et al. 2023 will require R version 3.5.2 and below package versions
-# alternatively, models produced in this R environment are available in the 'boral-models' folder on zenodo
+# alternatively, models produced in this R environment are available as .RDS files on zenodo
 # and can be used to reproduce all figures/results
 # (devtools)
 # install_version("boral", version = "1.7", repos = "http://cran.us.r-project.org")
