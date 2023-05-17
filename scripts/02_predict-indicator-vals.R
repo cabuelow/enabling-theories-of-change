@@ -4,7 +4,7 @@ library(boral)
 
 # data
 
-m1 <- readRDS('outputs/models/mod-LV9-final_2021.rds')
+m1 <- readRDS('outputs/models/mod-LV9-final.rds')
 colnames <- read.csv('outputs/colnames-boral.csv')
 
 # extract lv.coefs and lv scores from mcmc samples for LVs

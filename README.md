@@ -8,7 +8,7 @@ An interactive web application and associated code can be found [here](https://g
 
 ### About
 
-This repository provides the code and data to reproduce all figures and supplemental figures/tables found in Buelow et al. (*in prep*)
+This repository provides the code and data to reproduce all figures and supplemental figures/tables found in Buelow et al. (*under review*)
 
 [cbrown5](https://github.com/cbrown5) is a contributor to this code base
 
@@ -68,22 +68,22 @@ Global Theories of Change (ToCs) can provide broad, overarching guidance for ach
 #### Assess the robustness of Enabling Profiles
 
 1. 09_cluster-robustness.R
-    - Fig S7 and S8
+    - Fig S6 and S7
 
 #### Validate missing value interpolation
 
 1. 10_imputation-validation.R
-    - Fig S5
     
-#### Simulate missing nat at random and calculate prediction bias
+#### Simulate missing not at random and calculate predictive discrimination
 
 1. 11_simulate-mnar.R
-    - Fig S6
+2. 12_plot-sims.R
+   - Fig S5
 
 #### Compare country pairwise clustering differences when variables are removed
 
-1. 12_compare-clusters.R
-    - Fig S9
+1. 13_compare-clusters.R
+    - Fig S8
     
 ### Data sources
 

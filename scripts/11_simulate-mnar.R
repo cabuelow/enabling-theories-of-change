@@ -6,25 +6,21 @@ library(MASS)
 library(tidyverse)
 library(R2jags)
 library(boral)
-source('scripts/helpers/get_predictions.R')
+source('scripts/helpers/get_predictions_v3.R')
 
 num_variables <- 20 # number of response variables
 sample_size <- 100 # sample size
-corr <- c(0.5, 0.7, 0.3)
-prop.na <- c(0.5, 0.3, 0.5)
+prop.na <- c(0.5, 0.4, 0.3)
+correlation <- 0.5
 
-df <- data.frame(corr = NA, prop.na = NA, sim = NA, r2 = NA, RMSE = NA) # df to store results
-tmp2 <- list()
-for(a in 1:length(corr)){
+df <- data.frame(corr = NA, prop.na = NA, sim = NA, r2 = NA, RMSE = NA, r2_mnar = NA, RMSE_mnar = NA) # df to store results
+tmp <- list()
 
-  correlation <- corr[a]
-  tmp <- list()
+for(b in 1:length(prop.na)){
 
-  for(b in 1:length(prop.na)){
+    prop <- 1 - prop.na[b]
 
-    prop <- prop.na[b]
-
-for(d in 1:50){ # repeat simulation 100 times
+for(d in 1:100){ # repeat simulation 100 times
 
 # generate a random covariance matrix with varying correlations between -0.5 and 0.5
 
@@ -64,8 +60,8 @@ m2 <- boral(as.matrix(data_mnar), family = 'normal',
 
 # extract predictions
 
-pred <- get_predictions(x = m1, num_lv = 10)
-pred2 <- get_predictions(x = m2, num_lv = 10)
+pred <- get_predictions(x = m1)
+pred2 <- get_predictions(x = m2)
 
 # compare predictions
 
@@ -85,17 +81,17 @@ comp <- data.frame(x_pred = pred$X10, x_pred_mnar = pred2$X10,
 #ggsave('outputs/sim-mnar2.png', width = 6, height = 4)
 
 df[d,1] <- correlation
-df[d,2] <- prop
+df[d,2] <- 1- prop
 df[d,3] <- d
-df[d,4] <- cor(comp$x_raw, comp$x_pred_mnar)^2 # R2 with mnar
-df[d,5] <- sqrt(mean((comp$x_raw - comp$x_pred_mnar)^2)) # rmse with mnar
-write.csv(df, paste0('outputs/sim_', corr[a], '_', prop.na[b], '.csv'), row.names = F)
+df[d,4] <- cor(comp$x_raw, comp$x_pred)^2 # R2 with mnar
+df[d,5] <- sqrt(mean((comp$x_raw - comp$x_pred)^2)) # rmse with mnar
+df[d,6] <- cor(comp$x_raw, comp$x_pred_mnar)^2 # R2 with mnar
+df[d,7] <- sqrt(mean((comp$x_raw - comp$x_pred_mnar)^2)) # rmse with mnar
+write.csv(df, paste0('outputs/sim_', correlation, '_', 1-prop, '_v2.csv'), row.names = F)
 }
     tmp[[b]] <- df
-  }
-  df2 <- do.call(rbind, tmp)
-  tmp2[[a]] <- df2
 }
 
-final.df <- do.call(rbind, tmp2)
+final.df <- do.call(rbind, tmp)
+
 write.csv(final.df, 'outputs/sim-results.csv', row.names = F)

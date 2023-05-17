@@ -1,12 +1,13 @@
 # latent variable model
 # note that re-producing Buelow et al. 2023 will require R version 3.5.2 and below package versions
-# alternatively, models produced in this R environment are available in the 'outputs/models' folder
+# alternatively, models produced in this R environment are available in the 'boral-models' folder on zenodo
 # and can be used to reproduce all figures/results
 # (devtools)
 # install_version("boral", version = "1.7", repos = "http://cran.us.r-project.org")
 # install_version("rjags", version = "4.9", repos = "http://cran.us.r-project.org")
 # install_version("R2jags", version = "0.5.7", repos = "http://cran.us.r-project.org")
 
+library(GGally)
 library(tidyverse)
 library(R2jags)
 library(boral)
@@ -78,6 +79,10 @@ write.csv(df, 'outputs/percent-na-indicator.csv', row.names = F)
 # make indicator matrix for latent variable model
 
 y.mat <- as.matrix(y.scale)
+
+# proportion of positive or negative correlations greater than 0.5
+correl <- cor(y.mat, use = "complete.obs")[lower.tri(cor(y.mat, use = "complete.obs"), diag = FALSE) == TRUE]
+length(correl[correl >= 0.5]) + length(correl[correl <= -0.5])/length(correl)
 
 # set appropriate distribution for each response variable
 # i.e. normal, beta for proportions, binomial for binary, poisson for counts

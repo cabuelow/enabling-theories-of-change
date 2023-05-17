@@ -50,7 +50,7 @@ df %>%
   ggplot(aes(x = indicator, y = stat)) +
   geom_violin() +
   xlab('')+
-  ylab('Proportion of country pairwise clustering differences') +
+  ylab(paste0("Proportion of country", "\n", "pairwise clustering differences")) +
   theme_classic()
 
-ggsave('outputs/pairwise-clustering-differences_violin.png', width = 4, height = 4)
+ggsave('outputs/pairwise-clustering-differences_violin.png', width = 4, height = 3)
