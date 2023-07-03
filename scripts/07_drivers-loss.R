@@ -5,20 +5,27 @@ library(sf)
 library(RColorBrewer)
 library(tmap)
 library(EnvStats)
+sf_use_s2(FALSE)
 
 # data
 
 dat <- read.csv('data/goldberg-2020-mangrove-loss.csv', fileEncoding = "UTF-8-BOM") %>%
-  dplyr::rename(iso_a3 = ISO3)
-seag.dat <- read.csv('data/seag-country-drivers.csv') %>%
-  dplyr::rename(iso_a3 = ISO_SOV1)
+  dplyr::rename(ISO_SOV1 = ISO3)
+seag.dat <- read.csv('data/seag-country-drivers.csv')
 dat3 <- read.csv('data/master-df_final.csv')
 clusters <- read.csv( 'outputs/cluster.csv')
 clust.new <- read.csv('outputs/clus-new-order.csv') %>%
   dplyr::rename(Cluster = cluster)
 clust.final <- clusters %>%
   left_join(clust.new, by = 'Cluster')
-data('World')
+World <- st_read('data/UIA_World_Countries_Boundaries/UIA_World_Countries_Boundaries_simp.gpkg')
+World$Country <- recode(World$Country, `Russian Federation` = 'Russia',
+                        `Brunei Darussalam` = 'Brunei',
+                        Comoros = 'Comores',
+                        `Timor-Leste` = 'East Timor',
+                        Somalia = 'Federal Republic of Somalia',
+                        `Côte d'Ivoire` = 'Ivory Coast',
+                        Mauritius = 'Republic of Mauritius')
 
 # make a color palette
 
@@ -29,9 +36,8 @@ palette <- c('palevioletred', 'slategray1', 'plum4', 'peachpuff3', 'darkseagreen
 dat4 <- dat3 %>%
   left_join(clusters, by = 'ISO_SOV1') %>%
   distinct() %>%
-  dplyr::rename(iso_a3 = ISO_SOV1) %>%
   left_join(clust.new, by = 'Cluster') %>%
-  left_join(dat, by = 'iso_a3') %>%
+  left_join(dat, by = 'ISO_SOV1') %>%
   filter(!is.na(Country.y))
 
 # calculate proportion of loss to each driver in each cluster/enabling profile
@@ -87,8 +93,8 @@ ggsave('outputs/Fig2B.png', width = 2, height = 3.4)
 # join mangrove data with country polygons and plot
 
 world.clust <- World %>%
-  left_join(dat4, by = 'iso_a3') %>%
-  filter(!is.na(Country.y)) %>%
+  left_join(dat4, by = c('Country' = 'Country.x')) %>%
+  filter(!is.na(pal.fine)) %>%
   st_transform(crs = 4326) %>%
   st_crop(xmin = -180, ymin = -60, xmax = 180, ymax = 90) %>%
   st_transform(crs = '+proj=robin +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m no_defs')
@@ -102,7 +108,7 @@ World <- World %>%
 
 tmap_mode('plot')
 
-pal <- c("#88CCEE","#6699CC", "#44AA99", "#117733", "#CC6677","#882255")
+pal <- c("#88CCEE", "#44AA99", "#117733", "#CC6677","#882255")
 
 m <- tm_shape(World) +
   tm_fill(col = 'lightgrey') +
@@ -126,9 +132,8 @@ tmap_save(m, 'outputs/Fig2A.png', width = 8, height = 6)
 
 seag.dat2 <- data.frame(dat3 %>%
   left_join(clusters, by = 'ISO_SOV1') %>%
-  dplyr::rename(iso_a3 = ISO_SOV1) %>%
   left_join(clust.new, by = 'Cluster') %>%
-  inner_join(seag.dat, by = 'iso_a3') %>%
+  inner_join(seag.dat, by = 'ISO_SOV1') %>%
   select(Country, fine.clust, driver.category.2) %>%
   mutate(obs = rep(1, nrow(.))) %>%
   pivot_wider(id_cols = c(Country, fine.clust), names_from = driver.category.2, values_from = obs))
@@ -205,14 +210,13 @@ for(i in 1:length(continent)){
 
 # join seag data with country polygons and plot
 
-clust.final <- dplyr::rename(clust.final, iso_a3 = ISO_SOV1)
-
 seag.dat.m <- seag.dat %>%
-  left_join(clust.final, by = 'iso_a3') %>%
-  dplyr::rename('Enabling profile' = fine.clust)
+  left_join(clust.final, by = 'ISO_SOV1') %>%
+  dplyr::rename('Enabling profile' = fine.clust,
+                'Country' = 'SOVEREIGN1')
 
 world.clust <- World %>%
-  inner_join(seag.dat.m, by = 'iso_a3') %>%
+  inner_join(seag.dat.m, by = 'Country') %>%
   st_transform(crs = 4326) %>%
   st_crop(xmin = -180, ymin = -60, xmax = 180, ymax = 90) %>%
   st_transform(crs = '+proj=robin +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m no_defs')
@@ -226,7 +230,7 @@ World <- World %>%
 
 tmap_mode('plot')
 
-pal <- c("#88CCEE","#6699CC", "#44AA99", "#117733", "#CC6677","#882255")
+pal <- c("#88CCEE","#6699CC", "#44AA99", "#117733","#882255")
 
 m <- tm_shape(World) +
   tm_fill(col = 'lightgrey') +

@@ -14,7 +14,14 @@ sf_use_s2(FALSE)
 
 resid.df <- read.csv('outputs/predicted-indicator-vals/predicted-ind-vals-LV9-final_2021.csv')
 dat <- read.csv('data/master-df_final.csv')
-data('World')
+World <- st_read('data/UIA_World_Countries_Boundaries/UIA_World_Countries_Boundaries_simp.gpkg')
+World$Country <- recode(World$Country, `Russian Federation` = 'Russia',
+                        `Brunei Darussalam` = 'Brunei',
+                        Comoros = 'Comores',
+                        `Timor-Leste` = 'East Timor',
+                        Somalia = 'Federal Republic of Somalia',
+                        `Côte d'Ivoire` = 'Ivory Coast',
+                        Mauritius = 'Republic of Mauritius')
 
 # rescale predicted indicator values to smallest range
 
@@ -86,14 +93,13 @@ write.csv(clusters, 'outputs/cluster.csv', row.names = F)
 dat2 <- dat %>%
   left_join(clusters, by = 'ISO_SOV1') %>%
   distinct() %>%
-  dplyr::rename(iso_a3 = ISO_SOV1) %>%
   dplyr::rename(cluster = Cluster) %>%
   left_join(clust.name, by = 'cluster') %>%
   dplyr::rename('Enabling profile' = fine.clust)
 
-world.clust <- World %>%
-  left_join(dat2, by = 'iso_a3') %>%
-  filter(!is.na(Country)) %>%
+world.clust <- world.clust <- World %>%
+  left_join(dat2, by = 'Country') %>%
+  filter(!is.na(pal.fine)) %>%
   st_transform(crs = 4326) %>%
   st_crop(xmin = -180, ymin = -60, xmax = 180, ymax = 90) %>%
   st_transform(crs = '+proj=robin +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m no_defs')
