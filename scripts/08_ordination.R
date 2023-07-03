@@ -1,4 +1,4 @@
-# produce an ordination of standard normal indicator values for each country, 
+# produce an ordination of standard normal indicator values for each country,
 # and group by Enabling Profile
 
 # libraries
@@ -11,13 +11,13 @@ library(scales)
 # data
 
 clustdat <- read.csv('outputs/cluster.csv')
-inddat <- read.csv('outputs/predicted-indicator-vals/predicted-ind-vals-LV9-final.csv')
+inddat <- read.csv('outputs/predicted-indicator-vals/predicted-ind-vals-LV9-final_2021.csv')
 dat <- read.csv('data/master-df_final.csv')
-clust.new <- read.csv('outputs/clus-new-order.csv') %>% 
+clust.new <- read.csv('outputs/clus-new-order.csv') %>%
   dplyr::rename(Cluster = cluster)
-labels <- read.csv('data/indicator-labels.csv',  fileEncoding = "UTF-8-BOM") %>% 
+labels <- read.csv('data/indicator-labels.csv',  fileEncoding = "UTF-8-BOM") %>%
   dplyr::rename(variable = indicator)
-clust.final <- clustdat %>% 
+clust.final <- clustdat %>%
   left_join(clust.new, by = 'Cluster')
 
 # rescale
@@ -25,7 +25,7 @@ clust.final <- clustdat %>%
 max <- min(apply(inddat, 2, max))
 min <- max(apply(inddat, 2, min))
 
-inddat <- inddat %>% 
+inddat <- inddat %>%
   mutate_all(funs(rescale(., to = c(min, max))))
 
 # join country names to indicator data
@@ -46,18 +46,18 @@ var_coord_func <- function(loadings, comp.sdev){
 
 loadings <- pca$rotation
 sdev <- pca$sdev
-var.coord <- t(apply(loadings, 1, var_coord_func, sdev)) 
+var.coord <- t(apply(loadings, 1, var_coord_func, sdev))
 
 # make dataframe for plotting
 
-df <- data.frame(ISO_SOV1 = dat$ISO_SOV1, SOVEREIGN1 = dat$Country, 
+df <- data.frame(ISO_SOV1 = dat$ISO_SOV1, SOVEREIGN1 = dat$Country,
                  Dev.status = dat$Development_status, PC1 = pca$x[,1],
                 PC2 = pca$x[,2])
 
-df2 <- data.frame(variable = rownames(var.coord), PC1 = var.coord[,1], PC2 = var.coord[,2]) %>% 
+df2 <- data.frame(variable = rownames(var.coord), PC1 = var.coord[,1], PC2 = var.coord[,2]) %>%
   left_join(labels, by = 'variable')
 
-df.clust <- df %>% 
+df.clust <- df %>%
   left_join(clust.final, by = 'ISO_SOV1')
 
 # labels for plotting

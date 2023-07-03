@@ -8,10 +8,11 @@ library(clValid)
 library(dendextend)
 library(RColorBrewer)
 library(scales)
+sf_use_s2(FALSE)
 
 # dat
 
-resid.df <- read.csv('outputs/predicted-indicator-vals/predicted-ind-vals-LV9-final.csv')
+resid.df <- read.csv('outputs/predicted-indicator-vals/predicted-ind-vals-LV9-final_2021.csv')
 dat <- read.csv('data/master-df_final.csv')
 data('World')
 
@@ -61,9 +62,7 @@ clust.name <- clust.name %>% arrange(fine.clust)
 
 # get color palette and save new cluster order
 
-pal <- brewer.pal(9, 'YlGnBu')
-pal <- pal[c(2,3,5,6,8,9)]
-
+pal <- c("#88CCEE","#6699CC", "#44AA99", "#117733", "#CC6677","#882255")
 clust.name$pal.fine <- pal
 write.csv(clust.name, 'outputs/clus-new-order.csv', row.names = F)
 
