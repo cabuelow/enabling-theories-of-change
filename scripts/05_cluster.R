@@ -12,7 +12,7 @@ sf_use_s2(FALSE)
 
 # dat
 
-resid.df <- read.csv('outputs/predicted-indicator-vals/predicted-ind-vals-LV9-final_2021.csv')
+resid.df <- read.csv('outputs/predicted-indicator-vals/predicted-ind-vals-LV9-final.csv')
 dat <- read.csv('data/master-df_final.csv')
 World <- st_read('data/UIA_World_Countries_Boundaries/UIA_World_Countries_Boundaries_simp.gpkg')
 World$Country <- recode(World$Country, `Russian Federation` = 'Russia',

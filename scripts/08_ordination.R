@@ -11,7 +11,7 @@ library(scales)
 # data
 
 clustdat <- read.csv('outputs/cluster.csv')
-inddat <- read.csv('outputs/predicted-indicator-vals/predicted-ind-vals-LV9-final_2021.csv')
+inddat <- read.csv('outputs/predicted-indicator-vals/predicted-ind-vals-LV9-final.csv')
 dat <- read.csv('data/master-df_final.csv')
 clust.new <- read.csv('outputs/clus-new-order.csv') %>%
   dplyr::rename(Cluster = cluster)
