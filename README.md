@@ -6,7 +6,7 @@ An interactive web application and associated code can be found [here](https://g
 
 [About](#about) \| [Abstract](#abstract) \| [Scripts](#scripts) \| [Data sources](#data-sources) \| [License](LICENSE)
 
-### About {#about}
+### About
 
 This repository provides the code and data to reproduce figures in Buelow et al. (*under review*)
 
@@ -14,11 +14,11 @@ This repository provides the code and data to reproduce figures in Buelow et al.
 
 <img src="graphic.png" width="500"/>
 
-### Abstract {#abstract}
+### Abstract
 
 Global Theories of Change (ToCs) can provide broad, overarching guidance for achieving conservation goals. However, broad guidance cannot inform how conservation actions will lead to desired outcomes. Here, we develop a framework for translating a global-scale ToC into focussed, ecosystem-specific ToCs that consider feasibility of actions, as determined by national socioeconomic and political context (i.e., enabling conditions). We used coastal wetlands as a case study for developing the framework and identified six distinct multinational profiles of enabling conditions ('enabling profiles') for their conservation. For countries belonging to enabling profiles with high internal capacity to enable conservation, we described plausible ToCs that involved strengthening policy and regulation. Alternatively, for enabling profiles with low internal enabling capacity, plausible ToCs typically required formalising community-led conservation. Our 'enabling profile' framework could be applied to other ecosystems to help operationalise the Kunming-Montreal Global Biodiversity Framework.
 
-### Scripts {#scripts}
+### Scripts
 
 #### Run a Bayesian latent variable model (LVM) on raw indicator data to gap-fill missing indicator values by country
 
@@ -86,10 +86,10 @@ Global Theories of Change (ToCs) can provide broad, overarching guidance for ach
 1.  13_compare-clusters.R
     -   Fig S8
 
-### Data sources {#data-sources}
+### Data sources
 
 | Data category           | Indicator/Driver                                    | Description                                                                                                                                                                                                                                              | Source                                                                                                                                                                                                                                                                             |
-|-------------------------|-----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------------|------------------|------------------|------------------|
 | Policy indicator        | Nationally Determined Contribution (NDC) commitment | The commitment of a country to reducing green-house gas emissions, pledged as Nationally Determined Contributions (NDC)                                                                                                                                  | Watson, R., McCarthy, J.J., Canziani P., Nakicenovic, N., Hisas, L. 2019. The truth behind the climate pledges. The Universal Ecological Fund (FEU-US). Retrieved from <https://feu-us.org/>                                                                                       |
 | Policy indicator        | Nationally Determined Contribution (NDC) mitigation | Whether coastal wetlands are included in a country's Nationally Determined Contribution (NDC) mitigation strategy                                                                                                                                        | Herr, D., & Landis, E. 2016. Coastal blue carbon ecosystems Opportunities for Nationally Determined Contributions. Policy brief. Gland, Switzerland: IUCN and Washington, DC, USA: TNC. Retrieved from www.bluecsolutions.org                                                      |
 | Policy indicator        | Nationally Determined Contribution (NDC) adaptation | Whether coastal wetlands are included in a country's Nationally Determined Contribution (NDC) adaptation strategy                                                                                                                                        | Herr, D., & Landis, E. 2016. Coastal blue carbon ecosystems Opportunities for Nationally Determined Contributions. Policy brief. Gland, Switzerland: IUCN and Washington, DC, USA: TNC. Retrieved from www.bluecsolutions.org                                                      |
