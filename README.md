@@ -1,24 +1,24 @@
 ## Code and data for 'Enabling conservation Theories of Change'
 
-Citation: Buelow et al. (*under review*) *'Enabling conservation Theories of Change'* <https://doi.org/10.21203/rs.3.rs-2184542/v1>
+Citation: Buelow et al. (2023) [*'Enabling conservation theories of change'*](https://doi.org/10.1038/s41893-023-01245-y)
 
 An interactive web application and associated code can be found [here](https://github.com/cabuelow/enabling-profiles-app)
 
 [About](#about) \| [Abstract](#abstract) \| [Scripts](#scripts) \| [Data sources](#data-sources) \| [License](LICENSE)
 
-### About
+### About {#about}
 
-This repository provides the code and data to reproduce figures in Buelow et al. (*under review*)
+This repository provides the code and data to reproduce figures in Buelow et al. (2023)
 
 [cbrown5](https://github.com/cbrown5) is a contributor to this code base
 
 <img src="graphic.png" width="500"/>
 
-### Abstract
+### Abstract {#abstract}
 
-Global Theories of Change (ToCs) can provide broad, overarching guidance for conservation and sustainable use of Earth’s ecosystems. However, broad guidance alone cannot inform how conservation actions will lead to desired socio-ecological outcomes. Here, we develop a framework for translating a global-scale ToC into focussed, ecosystem-specific ToCs that consider feasibility of actions, as determined by national socioeconomic and political context (i.e., enabling conditions). We used coastal wetlands as a case study for developing the framework and identified six distinct multinational profiles of enabling conditions (‘enabling profiles’) for their conservation. For countries belonging to profiles with high internal capacity to enable conservation, we described plausible ToCs that involved strengthening policy and regulation. Alternatively, for profiles with low internal enabling capacity, plausible ToCs typically required formalising community-led conservation. Our ‘enabling profile’ framework can be applied to other ecosystems to help operationalise the Kunming-Montreal Global Biodiversity Framework and meet Sustainable Development Goals.
+Global Theories of Change (ToCs) can provide broad, overarching guidance for conservation and sustainable use of Earth's ecosystems. However, broad guidance alone cannot inform how conservation actions will lead to desired socio-ecological outcomes. Here, we develop a framework for translating a global-scale ToC into focussed, ecosystem-specific ToCs that consider feasibility of actions, as determined by national socioeconomic and political context (i.e., enabling conditions). We used coastal wetlands as a case study for developing the framework and identified six distinct multinational profiles of enabling conditions ('enabling profiles') for their conservation. For countries belonging to profiles with high internal capacity to enable conservation, we described plausible ToCs that involved strengthening policy and regulation. Alternatively, for profiles with low internal enabling capacity, plausible ToCs typically required formalising community-led conservation. Our 'enabling profile' framework can be applied to other ecosystems to help operationalise the Kunming-Montreal Global Biodiversity Framework and meet Sustainable Development Goals.
 
-### Scripts
+### Scripts {#scripts}
 
 #### Run a Bayesian latent variable model (LVM) on raw indicator data to gap-fill missing indicator values by country
 
@@ -86,7 +86,7 @@ Global Theories of Change (ToCs) can provide broad, overarching guidance for con
 1.  13_compare-clusters.R
     -   Fig S8
 
-### Data sources
+### Data sources {#data-sources}
 
 | Data category           | Indicator/Driver                                    | Description                                                                                                                                                                                                                                              | Source                                                                                                                                                                                                                                                                             |
 |------------------|------------------|------------------|------------------|
